@@ -1,6 +1,8 @@
 // Look at tissot webpage
 // Maybe later add Register watch
 // Add counter for cart items later
+import { Link } from "react-router-dom";
+
 import { IoSearchSharp } from "react-icons/io5";
 import { MdOutlineShoppingBag } from "react-icons/md";
 
@@ -15,7 +17,10 @@ export default function Header() {
       </h1>
       <div className="absolute top-+ right-10 flex items-center space-x-4 text-xl text-white">
         <IoSearchSharp size={30} className="cursor-pointer" />
-        <MdOutlineShoppingBag size={30} className="cursor-pointer" />
+
+        <Link to="cart">
+          <MdOutlineShoppingBag size={30} className="cursor-pointer" />
+        </Link>
       </div>
     </div>
   );
