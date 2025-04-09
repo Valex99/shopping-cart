@@ -1,11 +1,9 @@
-import Header from "../components/Header";
-import Nav from "../components/Nav";
+import Carousel from "../components/image-carousel/Carousel";
 
 export default function HomePage() {
   return (
     <div>
-      <Header />
-      <Nav />
+      <Carousel />
     </div>
   );
 }

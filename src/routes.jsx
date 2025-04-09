@@ -16,6 +16,11 @@ const routes = createBrowserRouter([
     element: <Layout />, // 👈 Everything inside here shares the layout
     children: [
       {
+        path: "/", // This is the homepage route
+        element: <Homepage />, // The homepage component
+      },
+
+      {
         path: "products",
         element: <Products />,
         children: [

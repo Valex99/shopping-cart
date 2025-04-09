@@ -4,3 +4,11 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
+/* Responsive design */
+/* Add hamburger menu icon on left side that opens up the nav bar */
+@media (max-width: 540px) {
+  .navbar {
+    display: none;
+  }
+}
