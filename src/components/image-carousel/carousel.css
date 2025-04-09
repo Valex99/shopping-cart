@@ -40,21 +40,19 @@
 }
 
 .carousel-slider-dot-btn {
-  all: unset;
-  display: block;
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-  transition: scale 100ms ease-in-out;
+  transition: transform 100ms ease-in-out; /* Use 'transform' for scale */
+  z-index: 20;
 }
 
 .carousel-slider-dot-btn:hover {
-  scale: 1.2;
+  transform: scale(1.2); /* Apply scaling here */
 }
 
 .carousel-slider-dot-btn > * {
   stroke: white;
-  fill: black;
   height: 100%;
   width: 100%;
 }

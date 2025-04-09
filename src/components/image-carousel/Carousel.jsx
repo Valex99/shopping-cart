@@ -43,7 +43,7 @@ export default function Carousel() {
         <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10" />
 
         {/* Collection Text */}
-        <div className="absolute bottom-14 left-20 z-20 max-w-[40%] text-white">
+        <div className="absolute bottom-14 left-40 z-20 max-w-[40%] text-white">
           <h2 className="text-4xl font-bold tracking-wide mb-2">
             {collections[imageIndex].name}
           </h2>
@@ -71,14 +71,15 @@ export default function Carousel() {
       </button>
 
       {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20
+      ">
         {collections.map((_, index) =>
           index === imageIndex ? (
-            <CircleDot key={index} className="text-white" />
+            <CircleDot key={index} className="text-white carousel-slider-dot-btn" />
           ) : (
             <Circle
               key={index}
-              className="text-white cursor-pointer"
+              className="text-white cursor-pointer carousel-slider-dot-btn"
               onClick={() => setImageIndex(index)}
             />
           )

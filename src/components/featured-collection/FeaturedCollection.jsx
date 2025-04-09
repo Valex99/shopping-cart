@@ -4,8 +4,8 @@ import image2 from "./collection-images/image2.jpg";
 
 export default function FeaturedCollection() {
   return (
-    <div className="flex p-5 py-15 px-5 w-full">
-      <div className="flex flex-col w-2/5 py-16 px-6 gap-[15px]">
+    <div className="flex p-5 pt-15 px-40 w-full">
+      <div className="flex flex-col w-2/5 py-16 pr-6 gap-[15px]">
         <h2 className="text-2xl font-bold tracking-wide">SERAPHÉ</h2>
         <p>
           “SERAPHÉ embodies refined craftsmanship, where precision engineering
@@ -21,9 +21,11 @@ export default function FeaturedCollection() {
 
       <div className="flex flex-col w-3/5 py-46 gap-[15px]">
         <img src={image2} alt="" />
-        <button className="w-3/8 py-3 px-6 mt-6 bg-black text-white font-bold hover:bg-gray-800 transition-all cursor-pointer">
-          SEE THE COLLECTION
-        </button>
+        <Link to="products">
+          <button className="w-3/8 py-3 px-6 mt-6 bg-black text-white font-bold hover:bg-gray-800 transition-all cursor-pointer">
+            SEE THE COLLECTION
+          </button>
+        </Link>
       </div>
     </div>
   );

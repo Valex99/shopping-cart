@@ -1,0 +1,63 @@
+.blog {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.blog-post {
+  flex: 1 1 250px;
+  /* Could also be:
+  flex: 1 1 250px;
+  
+  Later add media query below 250x pre blog-post change
+  main container flex direction from row to column
+  */
+
+  max-width: 430px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  padding-bottom: 80px;
+}
+
+.blog-image {
+  width: 100%;
+  object-fit: cover;
+  height: 450px;
+}
+
+.blog-theme {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6b7280; /* Tailwind gray-500 */
+}
+
+.blog-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937; /* Tailwind gray-800 */
+  line-height: 1.4;
+}
+
+.blog-description {
+  font-size: 0.95rem;
+  color: #4b5563; /* Tailwind gray-600 */
+  line-height: 1.5;
+}
+
+.blog-post a p {
+  color: #374151; /* Tailwind gray-700 */
+  font-weight: 500;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.blog-post a p:hover {
+  opacity: 0.7;
+}
