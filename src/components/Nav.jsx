@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
-    <div className="bg-[#4a4a4a] text-white h-12 flex items-center justify-center px-4 relative">
+    <div className="navbar bg-[#4a4a4a] text-white h-12 flex items-center justify-center px-4 relative">
       <Link to="products" className="text-white px-4 hover:underline">
         ALL PRODUCTS
       </Link>

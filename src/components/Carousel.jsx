@@ -1,19 +1,22 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowBigLeft, ArrowBigRight, CircleDot, Circle } from "lucide-react";
 // Classic image carousel
 // Should contain some text (collection - description)
 // Should contain button shop now -> leads to all products page
 
+import "./carousel.css";
+
 // Import all watch images
 import watch1 from "./carousel-images/watch1.jpg";
 import watch2 from "./carousel-images/watch2.jpg";
 import watch3 from "./carousel-images/watch3.jpg";
-import watch4 from "./carousel-images/watch4.jpg";
 import watch5 from "./carousel-images/watch5.jpg";
 import watch6 from "./carousel-images/watch6.jpg";
+import watch7 from "./carousel-images/watch7.jpg";
 
 // You only use ALL CAPS when defining constants thatnever change
-const images = [watch1, watch2, watch3, watch4, watch5, watch6];
+const images = [watch1, watch3, watch2, watch7, watch5, watch6];
 
 export default function Carousel() {
   const showNextImage = () => {
@@ -36,15 +39,28 @@ export default function Carousel() {
   return (
     <div className="relative max-h-[650px] w-full overflow-hidden">
       {/* Show all images - map through array and translate each one by 100% + add animation*/}
-      <div className="w-full h-full overflow-hidden flex">
+      {/* Can not transition from one image to anotehr if we dont know what next one is - we need other image in the dom as well */}
+      {/* SOLUTION: Render all images out */}
+      <div className=" h-[650px] w-full overflow-hidden flex">
         {images.map((url) => (
           <img
             key={url}
             src={url}
-            className="img object-cover flex-shrink-0 flex-grow-0"
+            className="img"
             style={{ translate: `${-100 * imageIndex}%` }}
           />
         ))}
+        {/*Add Dark overlay here - make sure buttons are still working*/}
+        {/* Shop Now button */}
+        <div className="absolute bottom-14 right-18 z-20">
+            <Link to="products">
+            
+          <button className="bg-white text-black px-8 py-4 rounded hover:bg-gray-200 transition cursor-pointer font-bold ">
+            SHOP NOW
+          </button>
+
+            </Link>
+        </div>
       </div>
       <button className="slider-btn" onClick={showPrevImage}>
         <ArrowBigLeft />
