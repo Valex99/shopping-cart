@@ -16,11 +16,25 @@ export default function FeaturedCollection() {
         <Link to="products" className="underline font-bold text-gray-800">
           BROWSE “SERAPHÉ”
         </Link>
-        <img src={image1} alt="" />
+
+        {/* Make images "reactive" - on hover it looks like it is zoomed in */}
+        <div className="overflow-hidden">
+          <img
+            src={image1}
+            alt=""
+            className="transition-transform duration-300 transform hover:scale-103"
+          />
+        </div>
       </div>
 
       <div className="flex flex-col w-3/5 py-46 gap-[15px]">
-        <img src={image2} alt="" />
+        <div className="overflow-hidden">
+          <img
+            src={image2}
+            alt=""
+            className="transition-transform duration-300 transform hover:scale-103"
+          />
+        </div>
         <Link to="products">
           <button className="w-3/8 py-3 px-6 mt-6 bg-black text-white font-bold hover:bg-gray-800 transition-all cursor-pointer">
             SEE THE COLLECTION

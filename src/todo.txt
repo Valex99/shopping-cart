@@ -12,6 +12,9 @@ FeaturedCollection:
 - Fix lateral padding (resize of images when screen goes towards 700px)
 - Add media query at around 700 / 800px page width
 - Fix side padding (apply max width)
+- Fix link to see collection - works if you click right when text ends...
 
+Blog:
+- Make images reactive
 
 - create an error page!

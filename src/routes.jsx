@@ -4,7 +4,7 @@ import Homepage from "./pages/HomePage";
 import Products from "./pages/Products";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
-import Error from "./pages/ErrorPage";
+import ErrorPage from "./pages/ErrorPage";
 
 import Watches from "./pages/Watches";
 import Jewelry from "./pages/Jewelry";
@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "error",
-        element: <Error />,
+        element: <ErrorPage />,
       },
     ],
   },

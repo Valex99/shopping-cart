@@ -7,7 +7,8 @@ import image3 from "./blog-images/blog3.jpg";
 
 export default function Blog() {
   return (
-    <div className="flex justify-center items-center flex-col px-20">
+    // Play around with px-40 (to make it responsive)
+    <div className="flex justify-center items-center flex-col px-40">
       <h1 className="m-10 text-2xl font-bold tracking-wide  text-gray-800">
         LATEST POSTS
       </h1>

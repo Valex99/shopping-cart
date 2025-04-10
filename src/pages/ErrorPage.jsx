@@ -1,7 +1,5 @@
-export default function Error() {
-  return (
-    <div>
-      <h1>ERROR PAGE</h1>
-    </div>
-  );
+import Error from "../components/error/Error";
+
+export default function ErrorPage() {
+  return <Error />;
 }
