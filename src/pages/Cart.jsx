@@ -1,5 +1,9 @@
+import Placeholder from "../components/Placeholder";
+
 export default function Cart() {
-    return (
-        <h1>Hello from Cart page!</h1>
-    )
+  return (
+    <div>
+      <Placeholder />
+    </div>
+  );
 }

@@ -3,12 +3,18 @@
 // it looks for an <Outlet /> inside Products to render the Watches component.
 // Without <Outlet />, React Router has nowhere to inject the nested component.
 
+import Placeholder from "../components/Placeholder";
+import Banner from "../components/banner/Banner";
+import ProductGrid from "../components/ProductGrid";
+
 import { Outlet } from "react-router-dom";
 
 export default function Products() {
   return (
     <div>
-      <h1>Hello from PRODUCTS page!</h1>
+      <Banner />
+      <ProductGrid />
+      <Placeholder />
 
       {/* This is where nested routes (like /products/watches) will render */}
       <Outlet />
