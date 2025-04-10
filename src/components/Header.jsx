@@ -19,7 +19,10 @@ export default function Header() {
       </Link>
 
       <div className="absolute top-+ right-10 flex items-center space-x-4 text-xl text-white">
-        <IoSearchSharp size={30} className="cursor-pointer" />
+        {/* // Temporary while the page is in production */}
+        <Link to="error">
+          <IoSearchSharp size={30} className="cursor-pointer" />
+        </Link>
 
         <Link to="cart">
           <MdOutlineShoppingBag size={30} className="cursor-pointer" />

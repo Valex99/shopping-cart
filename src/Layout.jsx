@@ -1,5 +1,9 @@
 import Header from "./components/Header";
 import Nav from "./components/Nav";
+import MailForm from "./components/mail-form/MailForm";
+import Footer from "./components/footer/Footer";
+import Author from "./components/Author";
+
 import { Outlet } from "react-router-dom";
 
 {
@@ -19,6 +23,9 @@ export default function Layout() {
       <main>
         <Outlet />
       </main>
+      <MailForm />
+      <Footer />
+      <Author />
       {/* Once the footer is ready - do the same with it */}
     </>
   );
