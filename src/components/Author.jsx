@@ -11,7 +11,7 @@ export default function Author() {
         <h1>Developed by Matej Valencic</h1>
       </div>
       <p className="text-[10px] mt-1">
-        © Copyright 2025 Renchester Ramos. All rights reserved.
+        © Copyright 2025 Matej Valencic. All rights reserved.
       </p>
     </div>
   );

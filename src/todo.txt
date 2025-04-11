@@ -1,5 +1,6 @@
 *
 - Add different fonts (Releway font)
+- Add new arrivals Component!
 
 Header:
 - Make header sticky to the top of the page on scroll down

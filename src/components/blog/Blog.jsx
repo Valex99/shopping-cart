@@ -14,7 +14,13 @@ export default function Blog() {
       </h1>
       <div className="blog">
         <div className="blog-post">
-          <img src={image1} alt="" className="blog-image" />
+          <div className="overflow-hidden">
+            <img
+              src={image1}
+              alt=""
+              className="blog-image transition-transform duration-500 transform hover:scale-102 w-full h-full object-cover"
+            />
+          </div>
           <h3 className="blog-theme">Feel good</h3>
           <h2 className="blog-title">
             Sleek, Sophisticated, and Timeless: The Art of Watchmaking
@@ -30,7 +36,14 @@ export default function Blog() {
           </Link>
         </div>
         <div className="blog-post">
-          <img src={image2} alt="" className="blog-image" />
+          <div className="overflow-hidden">
+            <img
+              src={image2}
+              alt=""
+              className="blog-image transition-transform duration-500 transform hover:scale-102 w-full h-full object-cover"
+            />
+          </div>
+
           <h3 className="blog-theme">Proper care</h3>
           <h2 className="blog-title">
             The Secret Behind Precision Timekeeping
@@ -46,7 +59,13 @@ export default function Blog() {
           </Link>
         </div>
         <div className="blog-post">
-          <img src={image3} alt="" className="blog-image" />
+          <div className="overflow-hidden">
+            <img
+              src={image3}
+              alt=""
+              className="blog-image transition-transform duration-500 transform hover:scale-102 w-full h-full object-cover"
+            />
+          </div>
           <h3 className="blog-theme">Legacy</h3>
           <h2 className="blog-title">The Legacy of Iconic Watches</h2>
           <p className="blog-description">
