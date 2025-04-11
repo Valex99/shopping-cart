@@ -10,8 +10,16 @@ export default function ProductGrid() {
   // .then(console.log);
 
   return (
-    <div className="flex px-40 py-20 gap-20">
-      <div className="w-[100px] bg-black"></div>
+    <div
+      className="flex px-40 py-20 gap-20 
+    flex justify-center
+    "
+    >
+      <div className="w-[200px] bg-black text-white">
+        {" "}
+        Maybe add me as a position absolute so i am taken out of the document
+        flow
+      </div>
 
       <div className="w-full grid-container">
         {/* // Grid childs */}
@@ -30,6 +38,8 @@ export default function ProductGrid() {
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
+
+        {/* // ADD PAGES - BUTTONS + NUMBERS */}
       </div>
     </div>
   );
