@@ -8,6 +8,7 @@ Header:
 Carousel:
 - maybe replace the button with the one on the main store
 - fix left and right button animation
+- Add timer so that carousel spins by itself
 
 FeaturedCollection:
 - Fix lateral padding (resize of images when screen goes towards 700px)
@@ -18,4 +19,9 @@ FeaturedCollection:
 Blog:
 - Make images reactive
 
-- create an error page!
+Footer:
+- Fix footer - section should be tighter together
+
+Grid:
+- Fix resizing
+- Fix gap between products on page resize

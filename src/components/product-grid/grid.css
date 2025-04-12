@@ -10,10 +10,11 @@
   height: 370px;
   background-color: white;
   overflow: hidden;
-  
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  max-width: 500px;
 }

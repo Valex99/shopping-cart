@@ -4,8 +4,8 @@ import banner1 from "./banner-image/banner1.jpg";
 
 export default function Banner() {
   return (
-    <div className="flex h-[420px]">
-      <div className="w-[40%] p-20 bg-[#f2efee] flex items-center flex-col text-[#423c3a]">
+    <div className="banner-div flex h-[420px]">
+      <div className="banner-text w-[40%] p-20 bg-[#f2efee] flex items-center flex-col text-[#423c3a]">
         <h1 className="font-bold text-[26px] mb-4">TIMELESS ELEGANCE</h1>
         {/* //  FIX THIS - OVERFLOW HIDDEN */}
         <p className="text-[14.5px] overflow-hidden">
@@ -20,7 +20,7 @@ export default function Banner() {
         </p>
       </div>
 
-      <div className="w-[60%] overflow-hidden">
+      <div className="banner-img-div w-[60%] overflow-hidden">
         <img
           src={banner1}
           alt=""

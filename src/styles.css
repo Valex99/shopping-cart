@@ -5,11 +5,23 @@
   font-family: "Montserrat", sans-serif;
 
   /* border: 1px solid red; */
-
 }
 
 /* Responsive design */
 /* Add hamburger menu icon on left side that opens up the nav bar */
+
+@media (max-width: 1100px) {
+  .products-menu {
+    display: none;
+  }
+  /* .banner-img-div {
+    display: none;
+  }
+  .banner-text {
+    width: 100%;
+  } */
+}
+
 @media (max-width: 540px) {
   .navbar {
     display: none;
