@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowBigLeft, ArrowBigRight, CircleDot, Circle } from "lucide-react";
 import { collections } from "./collectionData";
 import "./carousel.css";
@@ -7,6 +7,15 @@ import "./carousel.css";
 export default function Carousel() {
   // By default index is zero - show first picture
   const [imageIndex, setImageIndex] = useState(0);
+
+  // Auto slide shift - 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      showNextImage();
+    }, 4000); // Shift slide every 4s
+
+    return () => clearInterval(interval);
+  }, [imageIndex]);
 
   const showNextImage = () => {
     setImageIndex((index) => {
@@ -62,8 +71,8 @@ export default function Carousel() {
         </div>
       </div>
 
-    {/* Navigation Arrows */}
-    <button className="slider-btn left-0 z-30" onClick={showPrevImage}>
+      {/* Navigation Arrows */}
+      <button className="slider-btn left-0 z-30" onClick={showPrevImage}>
         <ArrowBigLeft />
       </button>
       <button className="slider-btn right-0 z-30" onClick={showNextImage}>
@@ -71,11 +80,16 @@ export default function Carousel() {
       </button>
 
       {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20
-      ">
+      <div
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20
+      "
+      >
         {collections.map((_, index) =>
           index === imageIndex ? (
-            <CircleDot key={index} className="text-white carousel-slider-dot-btn" />
+            <CircleDot
+              key={index}
+              className="text-white carousel-slider-dot-btn"
+            />
           ) : (
             <Circle
               key={index}
