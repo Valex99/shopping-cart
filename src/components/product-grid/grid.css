@@ -18,3 +18,7 @@
 
   max-width: 500px;
 }
+
+.product-img {
+  border: 5px solid gray;
+}

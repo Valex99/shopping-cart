@@ -28,27 +28,77 @@ export default function ProductGrid() {
     loadData();
   }, []);
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p>Loading...</p>;
 
   return (
     <div className="flex px-40 py-20 gap-20 flex justify-center">
-      <div className="products-menu w-[200px] border-[2px] border-solid border-red shrink-0">
-        Maybe add me as a position absolute so i am taken out of the document
-        flow
+      <div
+        className="products-menu w-[200px] shrink-0 flex flex-col items-center gap-5 pt-5
+      "
+      >
+        <p>ALL PRODUCTS</p>
+        <p>PRX COLLECTION</p>
+        <p>BESTSELLERS</p>
       </div>
 
       <div className="w-full grid-container">
         {/* // Grid childs */}
-        <ProductItem imgSrc={watchesArray.products[5].images[0]} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={watchesArray.products[5].images[1]} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={watchesArray.products[5].images[2]} itemName="TISSOT PRX" itemPrice="649€" />
+        {/* 
+        <ProductItem
+          imgSrc={watchesArray.products[0].images[0]}
+          itemName={watchesArray.products[0].title}
+          itemPrice={watchesArray.products[0].price}
+        />
+        <ProductItem
+          imgSrc={watchesArray.products[1].images[0]}
+          itemName={watchesArray.products[1].title}
+          itemPrice={watchesArray.products[1].price}
+        />
+        <ProductItem
+          imgSrc={watchesArray.products[2].images[0]}
+          itemName={watchesArray.products[2].title}
+          itemPrice={watchesArray.products[2].price}
+        />
+
+        <ProductItem
+          imgSrc={watchesArray.products[3].images[0]}
+          itemName={watchesArray.products[3].title}
+          itemPrice={watchesArray.products[3].price}
+        />
+        <ProductItem
+          imgSrc={watchesArray.products[4].images[0]}
+          itemName={watchesArray.products[4].title}
+          itemPrice={watchesArray.products[4].price}
+        />
+        <ProductItem
+          imgSrc={watchesArray.products[5].images[0]}
+          itemName={watchesArray.products[5].title}
+          itemPrice={watchesArray.products[5].price}
+        />
+
+        <ProductItem
+          imgSrc={watchesArray.products[5].images[1]}
+          itemName="TISSOT PRX"
+          itemPrice="649€"
+        />
+        <ProductItem
+          imgSrc={watchesArray.products[5].images[2]}
+          itemName="TISSOT PRX"
+          itemPrice="649€"
+        /> */}
 
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
+
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
+
+        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
+        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
+        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
+
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
         <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />

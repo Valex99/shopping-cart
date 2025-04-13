@@ -4,7 +4,7 @@ export default function ProductItem({ imgSrc, itemName, itemPrice }) {
       <img
         src={imgSrc}
         alt="Product"
-        className="h-[300px] w-full object-cover border-[5px] border-solid"
+        className="product-img h-[280px] w-full object-contain"
         draggable="false"
       />
       <div className="p-4 flex flex-col items-center">

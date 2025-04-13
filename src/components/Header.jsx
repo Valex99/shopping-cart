@@ -18,7 +18,7 @@ export default function Header() {
         </h1>
       </Link>
 
-      <div className="absolute top-+ right-10 flex items-center space-x-4 text-xl text-white">
+      <div className="icons absolute top-+ right-10 flex items-center space-x-4 text-xl text-white">
         {/* // Temporary while the page is in production */}
         <Link to="error">
           <IoSearchSharp size={30} className="cursor-pointer" />

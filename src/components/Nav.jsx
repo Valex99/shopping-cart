@@ -7,10 +7,10 @@ export default function Nav() {
         ALL PRODUCTS
       </Link>
       <Link to="/products/watches" className="text-white px-4 hover:underline">
-      PRX COLLECTION
+      MEN
       </Link>
       <Link to="/products/jewelry" className="text-white px-4 hover:underline">
-        BESTSELLERS
+        WOMEN
       </Link>
       <Link to="about" className="text-white px-4 hover:underline">
         ABOUT US

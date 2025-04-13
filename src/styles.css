@@ -22,8 +22,10 @@
   } */
 }
 
+/* // Hamburger menu should appear */
 @media (max-width: 540px) {
-  .navbar {
+  .navbar,
+  .icons {
     display: none;
   }
 }
