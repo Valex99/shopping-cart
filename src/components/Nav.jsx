@@ -6,10 +6,10 @@ export default function Nav() {
       <Link to="products" className="text-white px-4 hover:underline">
         ALL PRODUCTS
       </Link>
-      <Link to="/products/watches" className="text-white px-4 hover:underline">
+      <Link to="/products/men" className="text-white px-4 hover:underline">
       MEN
       </Link>
-      <Link to="/products/jewelry" className="text-white px-4 hover:underline">
+      <Link to="/products/women" className="text-white px-4 hover:underline">
         WOMEN
       </Link>
       <Link to="about" className="text-white px-4 hover:underline">

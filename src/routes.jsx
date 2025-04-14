@@ -6,8 +6,8 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import ErrorPage from "./pages/ErrorPage";
 
-import Watches from "./pages/Watches";
-import Jewelry from "./pages/Jewelry";
+import Men from "./pages/Men";
+import Women from "./pages/Women";
 import Layout from "./Layout";
 
 // By convention BrowserRouter is set up in main.jsx
@@ -25,8 +25,8 @@ const routes = createBrowserRouter([
         path: "products",
         element: <Products />,
         children: [
-          { path: "watches", element: <Watches /> },
-          { path: "jewelry", element: <Jewelry /> },
+          { path: "men", element:<Men /> },
+          { path: "women", element: <Women /> },
         ],
       },
       {

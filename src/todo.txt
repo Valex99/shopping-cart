@@ -26,8 +26,13 @@ Grid:
 - Fix resizing
 - Fix gap between products on page resize
 
+Loading:
+- Fix loading screen - should appear in the middle
+
 
 NEXT STEPS:
 1. Create multiple products pages (12 items per page)
 2. Ceate buttons to switch the page
 3. Make react router work with switch pages.
+
+// Fix linter error - each child should have unique key prop!
