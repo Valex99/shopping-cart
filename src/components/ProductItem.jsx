@@ -1,6 +1,6 @@
 export default function ProductItem({ imgSrc, itemName, itemPrice }) {
   return (
-    <div className="grid-child shadow-md rounded hover:scale-101">
+    <div className="grid-child shadow-md rounded hover:scale-101 cursor-pointer">
       <img
         src={imgSrc}
         alt="Product"

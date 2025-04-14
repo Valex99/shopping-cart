@@ -22,7 +22,7 @@ export async function fetchWatches() {
     const combinedWatches = [...mensData.products, ...womensData.products];
 
     // Return the combined array
-    console.log(combinedWatches);
+    //console.log(combinedWatches);
     return combinedWatches;
   } catch (error) {
     console.error("Error fetching watches: ", error);

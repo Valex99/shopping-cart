@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import "./grid.css";
 import ProductItem from "../ProductItem";
+import duplicateWatches from "../../duplicateWatches";
 
 // Imported pic for ProductItem
-import prx from "../banner/banner-image/prx-collection.jpg";
+//import prx from "../banner/banner-image/prx-collection.jpg";
 
 // Import fetch function to call it
 import { fetchWatches } from "../../api";
@@ -17,7 +18,12 @@ export default function ProductGrid() {
       try {
         const data = await fetchWatches();
         console.log("DATA:", data);
-        setWatchesArray(data);
+        //setWatchesArray(data);
+
+        // Duplicate array
+        const duplicatedData = duplicateWatches(data);
+        console.log("Duplicated DATA:", duplicatedData);
+        setWatchesArray(duplicatedData);
       } catch (err) {
         console.error("Error fetching watches: ", err);
       } finally {
@@ -28,7 +34,7 @@ export default function ProductGrid() {
     loadData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Loading...</p>; // STYLE THIS - Add spinner or something
 
   return (
     <div className="flex px-40 py-20 gap-20 flex justify-center">
@@ -43,65 +49,13 @@ export default function ProductGrid() {
 
       <div className="w-full grid-container">
         {/* // Grid childs */}
-        {/* 
-        <ProductItem
-          imgSrc={watchesArray.products[0].images[0]}
-          itemName={watchesArray.products[0].title}
-          itemPrice={watchesArray.products[0].price}
-        />
-        <ProductItem
-          imgSrc={watchesArray.products[1].images[0]}
-          itemName={watchesArray.products[1].title}
-          itemPrice={watchesArray.products[1].price}
-        />
-        <ProductItem
-          imgSrc={watchesArray.products[2].images[0]}
-          itemName={watchesArray.products[2].title}
-          itemPrice={watchesArray.products[2].price}
-        />
-
-        <ProductItem
-          imgSrc={watchesArray.products[3].images[0]}
-          itemName={watchesArray.products[3].title}
-          itemPrice={watchesArray.products[3].price}
-        />
-        <ProductItem
-          imgSrc={watchesArray.products[4].images[0]}
-          itemName={watchesArray.products[4].title}
-          itemPrice={watchesArray.products[4].price}
-        />
-        <ProductItem
-          imgSrc={watchesArray.products[5].images[0]}
-          itemName={watchesArray.products[5].title}
-          itemPrice={watchesArray.products[5].price}
-        />
-
-        <ProductItem
-          imgSrc={watchesArray.products[5].images[1]}
-          itemName="TISSOT PRX"
-          itemPrice="649€"
-        />
-        <ProductItem
-          imgSrc={watchesArray.products[5].images[2]}
-          itemName="TISSOT PRX"
-          itemPrice="649€"
-        /> */}
-
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
-        <ProductItem imgSrc={prx} itemName="TISSOT PRX" itemPrice="649€" />
+        {watchesArray.map((watch) => (
+          <ProductItem
+            imgSrc={watch.images[0]}
+            itemName={watch.title}
+            itemPrice={watch.price + "$"}
+          />
+        ))}
         {/* // ADD PAGES - BUTTONS + NUMBERS */}
       </div>
     </div>
