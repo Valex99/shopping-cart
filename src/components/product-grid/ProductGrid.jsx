@@ -25,6 +25,7 @@ export default function ProductGrid() {
   const totalItems = watchesArray.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
+  // Page indexing - showing 12 products per page
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = watchesArray.slice(startIndex, endIndex);
@@ -65,6 +66,7 @@ export default function ProductGrid() {
   return (
     <div className="flex px-40 py-20 gap-20 flex justify-center">
       <div className="products-menu w-[200px] shrink-0 flex flex-col items-center gap-5 pt-5">
+        {/* // THIS DIV SHOULD HAVE A POSITION STICKY - IT GOES DOWN WITH THE PAGE */}
         <p>ALL PRODUCTS</p>
         <p>PRX COLLECTION</p>
         <p>BESTSELLERS</p>
