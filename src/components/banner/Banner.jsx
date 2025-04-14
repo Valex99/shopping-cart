@@ -1,18 +1,15 @@
 // Add media query here! - banner text overflow
-import banner1 from "./banner-image/banner1.jpg";
+//import allProductsImg from "./banner-image/banner1.jpg";
 //import prx1 from "./banner-image/prx-collection.jpg";
 
-export default function Banner() {
+export default function Banner({ title, description, img }) {
   return (
     <div className="banner-div flex h-[420px]">
       <div className="banner-text w-[40%] p-20 bg-[#f2efee] flex items-center flex-col text-[#423c3a]">
-        <h1 className="font-bold text-[26px] mb-4">TIMELESS ELEGANCE</h1>
+        <h1 className="font-bold text-[26px] mb-4">{title}</h1>
         {/* //  FIX THIS - OVERFLOW HIDDEN */}
         <p className="text-[14.5px] overflow-hidden">
-          Introducing our exquisite collection of timepieces, where precision
-          meets elegance. Whether you’re looking for a sleek, modern design or a
-          timeless, classic style, our watches are crafted to complement your
-          unique taste.
+          {description}
           <br />
           <br />
           Explore our selection and find the perfect watch to enhance your look
@@ -22,9 +19,10 @@ export default function Banner() {
 
       <div className="banner-img-div w-[60%] overflow-hidden">
         <img
-          src={banner1}
-          alt=""
-          className="transition-transform duration-600 transform hover:scale-103 w-full h-full object-cover"
+          src={img}
+          alt={title}
+          className="transition-transform duration-600 transform hover:scale-103 w-full h-full object-cover 
+          grayscale"
         />
       </div>
     </div>

@@ -1,5 +1,9 @@
 const Men = () => {
-  return null; // literally nothing will render
+  return (
+    <div>
+      <h1>Hello from MEN PAGE</h1>
+    </div>
+  );
 };
 
 export default Men;
