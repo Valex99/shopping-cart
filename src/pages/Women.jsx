@@ -1,5 +1,10 @@
+import { Watch } from "lucide-react";
+import ProductGrid from "../components/product-grid/ProductGrid";
+
 export default function Women() {
-    return (
-        <h1>Hello from WOMEN page!</h1>
-    )
+  return (
+    <div>
+      <ProductGrid filterFn={(watch) => watch.category === "womens-watches"} />
+    </div>
+  );
 }

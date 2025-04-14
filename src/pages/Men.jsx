@@ -1,8 +1,9 @@
-// Should take array in as prop
+import ProductGrid from "../components/product-grid/ProductGrid";
+
 const Men = () => {
   return (
     <div>
-      <h1>Hello from MEN PAGE</h1>
+      <ProductGrid filterFn={(watch) => watch.category === "mens-watches"}/>
     </div>
   );
 };

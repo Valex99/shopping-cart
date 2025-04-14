@@ -9,7 +9,7 @@ import { fetchWatches } from "../../api";
 // Imported pic for ProductItem
 //import prx from "../banner/banner-image/prx-collection.jpg";
 
-export default function ProductGrid() {
+export default function ProductGrid({ filterFn }) {
   const [watchesArray, setWatchesArray] = useState([]);
   const [loading, setLoading] = useState([true]);
 
@@ -39,7 +39,12 @@ export default function ProductGrid() {
         const duplicatedData = duplicateWatches(data);
         console.log("Duplicated DATA:", duplicatedData);
 
-        setWatchesArray(duplicatedData);
+        // Apply filter if provided
+        const filtered = filterFn
+          ? duplicatedData.filter(filterFn)
+          : duplicatedData;
+
+        setWatchesArray(filtered);
       } catch (err) {
         console.error("Error fetching watches: ", err);
       } finally {
@@ -48,7 +53,7 @@ export default function ProductGrid() {
     };
 
     loadData();
-  }, []);
+  }, [filterFn]);
 
   const handlePageChange = (page) => {
     setSearchParams({ page: page.toString() });
