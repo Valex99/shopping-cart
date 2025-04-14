@@ -30,3 +30,8 @@ export default function Banner() {
     </div>
   );
 }
+
+// What should be a prop?
+// 1. Title
+// 2. Description
+// 3. Img
