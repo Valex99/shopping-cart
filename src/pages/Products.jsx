@@ -21,6 +21,7 @@ export default function Products() {
   const isBaseMensPage = location.pathname === "/products/men";
   const isBaseWomenPage = location.pathname === "/products/women";
 
+  
   return (
     <div>
       {/* IF CURRENT PAGE IS ALL PRODUCTS, SHOW ALL PRODUCTS BANNER */}
