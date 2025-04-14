@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pagination.css"; // Import the CSS file for styling
+import "./pagination.css"; // Import the CSS file for styling
 
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
   const pageNumbers = Array.from(
