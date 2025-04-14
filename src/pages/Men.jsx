@@ -1,3 +1,4 @@
+// Should take array in as prop
 const Men = () => {
   return (
     <div>
