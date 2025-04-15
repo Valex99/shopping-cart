@@ -5,6 +5,7 @@ import duplicateWatches from "../../duplicateWatches";
 import { useSearchParams } from "react-router-dom"; // pagination
 import Pagination from "../pagination/Pagination";
 import { fetchWatches } from "../../api";
+import { NavLink } from "react-router-dom";
 
 // Imported pic for ProductItem
 //import prx from "../banner/banner-image/prx-collection.jpg";
@@ -72,10 +73,34 @@ export default function ProductGrid({ filterFn }) {
     <div className="flex px-40 py-20 gap-20 flex justify-center">
       <div className="products-menu w-[200px] shrink-0 flex flex-col items-center gap-5 pt-5">
         {/* // THIS DIV SHOULD HAVE A POSITION STICKY - IT GOES DOWN WITH THE PAGE */}
-        {/* Add link to it */}
-        <p>ALL PRODUCTS</p>
-        <p>MEN</p>
-        <p>WOMEN</p>
+        {/* Side menu configured with NavLink to determine which one is active and adding class on top of that */}
+        <NavLink
+          to="/products"
+          end
+          className={({ isActive }) =>
+            isActive ? "menu-link-active" : "menu-link"
+          }
+        >
+          <p>ALL PRODUCTS</p>
+        </NavLink>
+
+        <NavLink
+          to="/products/men"
+          className={({ isActive }) =>
+            isActive ? "menu-link-active" : "menu-link"
+          }
+        >
+          <p>MEN</p>
+        </NavLink>
+
+        <NavLink
+          to="/products/women"
+          className={({ isActive }) =>
+            isActive ? "menu-link-active" : "menu-link"
+          }
+        >
+          <p>WOMEN</p>
+        </NavLink>
       </div>
 
       <div className="flex flex-col">

@@ -1,4 +1,3 @@
-import { Watch } from "lucide-react";
 import ProductGrid from "../components/product-grid/ProductGrid";
 
 export default function Women() {
