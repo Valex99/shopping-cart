@@ -7,6 +7,7 @@
 
 import Banner from "../components/banner/Banner";
 import ProductGrid from "../components/product-grid/ProductGrid";
+import SingleProduct from "./SingleProduct";
 
 import bannerData from "../components/banner/bannerData";
 
@@ -21,7 +22,11 @@ export default function Products() {
   const isBaseMensPage = location.pathname === "/products/men";
   const isBaseWomenPage = location.pathname === "/products/women";
 
-  
+  // Check if the pathname is e.g. products/men or women/number
+  const isProductDetailPage = /^\/products\/(men|women)\/\d+$/.test(
+    location.pathname
+  );
+
   return (
     <div>
       {/* IF CURRENT PAGE IS ALL PRODUCTS, SHOW ALL PRODUCTS BANNER */}
@@ -54,7 +59,15 @@ export default function Products() {
       {/* Just calling ProductGrid is showing all products unconditionally */}
       {isBaseProductsPage && <ProductGrid />}
 
-      <Outlet />
+      {/* // Problem: If this is true also one of the above is always ture 
+      products/men or product/women */}
+      {/* PROBLEM {isProductDetailPage && <SingleProduct/>}  */}
+
+      {/* Main rendering logic 
+       If user clicked on the product show SingleProduct page
+       Else show Outlet
+      */}
+      {isProductDetailPage ? <SingleProduct /> : <Outlet />}
     </div>
   );
 }
