@@ -1,5 +1,5 @@
 import allProductsImg from "./banner-image/banner1.jpg";
-import mensWatch from "./banner-image/mens-watch1.jpg";
+import mensWatch from "./banner-image/mens-watch3.jpg";
 import womensWatch from "./banner-image/womans-watch.jpg";
 
 const bannerData = [
