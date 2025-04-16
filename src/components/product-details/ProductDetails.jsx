@@ -1,11 +1,15 @@
 import "./product.css";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 // Import context
 import { useWatches } from "../../context/WatchesContext";
+import { Watch } from "lucide-react";
 
 export default function ProductDetails() {
+  const [quantity, setQuantity] = useState(1);
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
   const { id } = useParams();
   console.log("ID:", id);
 
@@ -16,7 +20,10 @@ export default function ProductDetails() {
   const watchData = globalWatchesData.find((watch) => watch.id === productId);
   console.log("CLICKED WATCH WHOLE DATA: ", watchData);
 
-  // EXTRACT DATA FROM ARRAY AND PUT IS INTO HTML BELOW
+  // EXTRACT DATA FROM ARRAY AND PUT IS INTO HTML BELOW - FIX THIS
+  if (!watchData) {
+    return <p>Loading...</p>; // or a spinner, or redirect, etc.
+  }
 
   return (
     <div className="main-container">
@@ -66,19 +73,38 @@ export default function ProductDetails() {
         </ul>
 
         <div className="quantity-container">
-          <button className="decrease">-</button>
+          <button
+            className="decrease"
+            onClick={() => setQuantity(quantity - 1)}
+            disabled={quantity === 1}
+          >
+            -
+          </button>
           <input
             type="number"
             className="amount input"
-            value="1"
+            value={quantity}
             min="1"
-            readOnly
           />
-          <button className="increase">+</button>
+          <button
+            className="increase"
+            onClick={() => setQuantity(quantity + 1)}
+          >
+            +
+          </button>
         </div>
 
-        <button className="add-to-cart-btn">ADD TO CART</button>
+        <button
+          className="add-to-cart-btn"
+          onClick={() => {
+            setIsAddedToCart(true);
+            setQuantity(1);
+          }}
+        >
+          ADD TO CART
+        </button>
 
+        {isAddedToCart && <button className="checkout-btn">CHECKOUT</button>}
       </div>
     </div>
   );

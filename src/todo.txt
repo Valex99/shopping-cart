@@ -40,3 +40,5 @@ NEXT STEPS:
 // Fix linter error - each child should have unique key prop!
 
 // Add Local storage!
+
+// BIG ERROR - IF YOU ARE ON SINGLE PRODUCT PAGE AND YOU REFRESH A PAGE -> It crashes
