@@ -134,7 +134,8 @@ export default function ProductGrid({ filterFn }) {
           {currentItems.map((watch) => (
             <Link key={watch.id} to={`/products/${watch.category}/${watch.id}`}>
               <ProductItem
-                imgSrc={watch.images[0]}
+                firstImgSrc={watch.images[0]}
+                secondImageSrc={watch.images[1]}
                 itemName={watch.title}
                 itemPrice={watch.price + "$"}
                 onClick={() => consoleLogId(watch.id)}
