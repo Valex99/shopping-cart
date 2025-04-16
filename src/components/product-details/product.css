@@ -11,11 +11,13 @@
   margin-right: auto;
 }
 
+
+/* CHANGE WHEN PAGE WIDTH IS BELOW 1000PX */
 .left-side {
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 500px;
 }
 
 .path {
@@ -44,26 +46,6 @@
 .active-image-div img {
   width: 100%;
   object-fit: contain;
-}
-
-.all-images-div {
-  display: flex;
-  gap: 1rem;
-}
-
-.all-images-div img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border: 2px solid transparent;
-  cursor: pointer;
-
-  /* FIX THAT AS WELL
-    min-width: 400px; */
-}
-
-.all-images-div img.active {
-  border-color: #c87c2e;
 }
 
 .right-side {
@@ -181,4 +163,21 @@
 .checkout-btn:hover {
   background-color: #898785;
   color: white;
+}
+
+/* product small images */
+.small-images {
+  height: 100px;
+  border: 1px solid gray;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.all-images-div {
+  display: flex;
+  gap: 1rem;
+}
+
+.all-images-div img.active {
+  border-color: #c87c2e;
 }

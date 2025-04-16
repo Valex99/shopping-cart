@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 // Import context
 import { useWatches } from "../../context/WatchesContext";
-import { Watch } from "lucide-react";
 
 export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
@@ -45,10 +44,25 @@ export default function ProductDetails() {
         </div>
 
         {/* // ALL IMAGES DIV - ADD LATER ONE */}
-        <div className="all-images-div">
-          {/* {images.map((img, index) => (
-            <img key={index} src={img} alt={`thumbnail-${index}`} />
-          ))} */}
+        <div className="all-images-div h-[90px] flex items-center justify-center">
+          <img
+            src={watchData.images[0]}
+            alt=""
+            className="small-images"
+            draggable="false"
+          />
+          <img
+            src={watchData.images[1]}
+            alt=""
+            className="small-images"
+            draggable="false"
+          />
+          <img
+            src={watchData.images[2]}
+            alt=""
+            className="small-images"
+            draggable="false"
+          />
         </div>
       </div>
 
