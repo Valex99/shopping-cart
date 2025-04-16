@@ -21,7 +21,7 @@ export default function ProductItem({
         <img
           src={secondImageSrc}
           alt="Product"
-          className="h-full w-full object-contain absolute top-0 left-0 transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+          className="h-full w-full object-contain absolute top-0 left-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
           draggable="false"
         />
       </div>
