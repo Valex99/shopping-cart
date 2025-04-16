@@ -104,7 +104,12 @@ export default function ProductDetails() {
           ADD TO CART
         </button>
 
-        {isAddedToCart && <button className="checkout-btn">CHECKOUT</button>}
+        {/* // Fix Checkoutt button design */}
+        {isAddedToCart && (
+          <Link to="/cart" className="checkout-btn">
+            <button>CHECKOUT</button>
+          </Link>
+        )}
       </div>
     </div>
   );
