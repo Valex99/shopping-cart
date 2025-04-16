@@ -1,6 +1,6 @@
 import "./product.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // Import context
 import { useWatches } from "../../context/WatchesContext";
@@ -9,21 +9,29 @@ export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
+  // If I do that - state is set before data is fetched - use useEffect
+  // const [selectedImage, setSelectedImage] = useState(watchData.images[0]);
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const { id } = useParams();
   console.log("ID:", id);
 
   const { globalWatchesData } = useWatches();
-
   const productId = Number(id); // Convert it from string to number
-
   const watchData = globalWatchesData.find((watch) => watch.id === productId);
   console.log("CLICKED WATCH WHOLE DATA: ", watchData);
 
+  // This makes sure selectedImage is only set once the data is loaded.
+  useEffect(() => {
+    if (watchData && watchData.images && watchData.images.length > 0) {
+      setSelectedImage(watchData.images[0]);
+    }
+  }, [watchData]);
+
   // EXTRACT DATA FROM ARRAY AND PUT IS INTO HTML BELOW - FIX THIS
-  if (!watchData) {
+  if (!watchData || !watchData.images) {
     return <p>Loading...</p>; // or a spinner, or redirect, etc.
   }
-
   return (
     <div className="main-container">
       <div className="left-side">
@@ -39,30 +47,27 @@ export default function ProductDetails() {
           <p>{watchData.title}</p>
         </div>
 
-        <div className="active-image-div">
-          <img src={watchData.images[0]} />
+        <div className="active-image-div overflow-hidden">
+          <img
+            src={selectedImage}
+            className="hover:scale-102 transition-transform duration-500 ease-in-out"
+          />
         </div>
 
         {/* // ALL IMAGES DIV - ADD LATER ONE */}
         <div className="all-images-div h-[90px] flex items-center justify-center">
-          <img
-            src={watchData.images[0]}
-            alt=""
-            className="small-images"
-            draggable="false"
-          />
-          <img
-            src={watchData.images[1]}
-            alt=""
-            className="small-images"
-            draggable="false"
-          />
-          <img
-            src={watchData.images[2]}
-            alt=""
-            className="small-images"
-            draggable="false"
-          />
+          {watchData.images.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              onClick={() => setSelectedImage(img)}
+              className={`h-20 w-20 object-cover cursor-pointer rounded ${
+                selectedImage === img
+                  ? "border-4 border-black"
+                  : "border border-gray-300"
+              } transition-all duration-300`}
+            />
+          ))}
         </div>
       </div>
 
