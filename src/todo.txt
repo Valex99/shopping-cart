@@ -38,3 +38,5 @@ NEXT STEPS:
 3. Make react router work with switch pages.
 
 // Fix linter error - each child should have unique key prop!
+
+// Add Local storage!

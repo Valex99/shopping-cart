@@ -1,6 +1,7 @@
-export default function ProductItem({ imgSrc, itemName, itemPrice }) {
+export default function ProductItem({ imgSrc, itemName, itemPrice, onClick }) {
   return (
-    <div className="grid-child shadow-md rounded hover:scale-101 cursor-pointer">
+    // Add a second image later on
+    <div className="grid-child shadow-md rounded hover:scale-101 cursor-pointer" onClick={onClick}>
       <img
         src={imgSrc}
         alt="Product"

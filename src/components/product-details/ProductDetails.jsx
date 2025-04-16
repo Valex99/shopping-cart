@@ -1,20 +1,40 @@
 import "./product.css";
-import prx from "../banner/banner-image/prx-collection.jpg";
+import { Link } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
+// Import context
+import { useWatches } from "../../context/WatchesContext";
 
 export default function ProductDetails() {
-  // Add all input props into it
+  const { id } = useParams();
+  console.log("ID:", id);
+
+  const { globalWatchesData } = useWatches();
+
+  const productId = Number(id); // Convert it from string to number
+
+  const watchData = globalWatchesData.find((watch) => watch.id === productId);
+  console.log("CLICKED WATCH WHOLE DATA: ", watchData);
+
+  // EXTRACT DATA FROM ARRAY AND PUT IS INTO HTML BELOW
 
   return (
     <div className="main-container">
       <div className="left-side">
         <div className="path">
-          <p>HOME</p>
-          <p>MEN</p>
-          <p>ROLEX DAYTONA</p>
+          <Link to="/products">
+            <p className="underline">HOME</p>
+          </Link>
+          <p></p>
+          <Link to={`/products/${watchData.category}`}>
+            <p className="underline">{watchData.category}</p>
+          </Link>
+          <p></p>
+          <p>{watchData.title}</p>
         </div>
 
         <div className="active-image-div">
-          <img src={prx} />
+          <img src={watchData.images[0]} />
         </div>
 
         {/* // ALL IMAGES DIV - ADD LATER ONE */}
@@ -26,41 +46,31 @@ export default function ProductDetails() {
       </div>
 
       <div className="right-side">
-        <h1 className="product-name">ROLEX DAYTONA</h1>
+        <h1 className="product-name">{watchData.title}</h1>
 
         <h2 className="product-price">
-          42 000€
+          {watchData.price}$
           {/* ADD THAT IN CASE THERE IS A SALE ON THIS PRODUCT */}
           {/* {oldPrice && (
             <span className="old-price">₱{oldPrice.toLocaleString()}</span>
           )} */}
         </h2>
 
-        <p className="product-description">
-          “A sleek, modern timepiece crafted with precision. Featuring a
-          stainless steel case, minimalist dial, and a comfortable leather strap
-          — perfect for any occasion.”
-        </p>
+        <p className="product-description">{watchData.description}</p>
 
         <ul className="features">
-
-          {/* MAP THROUGH LI ELEMENTS LATER ON */}
-          {/* {features.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))} */}
-          <li>Modern Design</li>
-          <li>Carbon Case</li>
-          <li>Saphire glass</li>
-          <li>...</li>
+          <li>{watchData.rating} / 5</li>
+          <li>{watchData.returnPolicy}</li>
+          <li>{watchData.shippingInformation}</li>
+          <li>{watchData.warrantyInformation}</li>
         </ul>
 
-        <div className="quantity-selector">
+        <div className="quantity-container">
           <button className="decrease">-</button>
           <input
             type="number"
             className="amount input"
-            // ZERO FOR NOW
-            value="0"
+            value="1"
             min="1"
             readOnly
           />
@@ -68,6 +78,7 @@ export default function ProductDetails() {
         </div>
 
         <button className="add-to-cart-btn">ADD TO CART</button>
+
       </div>
     </div>
   );

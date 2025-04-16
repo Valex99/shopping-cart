@@ -5,6 +5,7 @@ import Products from "./pages/Products";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import ErrorPage from "./pages/ErrorPage";
+import SingleProduct from "./pages/SingleProduct";
 
 import Men from "./pages/Men";
 import Women from "./pages/Women";
@@ -25,8 +26,26 @@ const routes = createBrowserRouter([
         path: "products",
         element: <Products />,
         children: [
-          { path: "men", element:<Men /> },
-          { path: "women", element: <Women /> },
+          {
+            path: "men",
+            element: <Men />,
+            children: [
+              {
+                path: ":id", // products/men/:id
+                element: <SingleProduct />,
+              },
+            ],
+          },
+          {
+            path: "women",
+            element: <Women />,
+            children: [
+              {
+                path: ":id",
+                element: <SingleProduct />,
+              },
+            ],
+          },
         ],
       },
       {

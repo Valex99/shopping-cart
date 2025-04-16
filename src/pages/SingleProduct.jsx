@@ -1,7 +1,9 @@
+import ProductDetails from "../components/product-details/ProductDetails";
+
 export default function SingleProduct() {
   return (
     <div>
-      <h1>Hello from SINGLE PRODUCT PAGE</h1>
+      <ProductDetails />
     </div>
   );
 }

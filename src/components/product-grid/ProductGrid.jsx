@@ -6,12 +6,17 @@ import { useSearchParams } from "react-router-dom"; // pagination
 import Pagination from "../pagination/Pagination";
 import { fetchWatches } from "../../api";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useWatches } from "../../context/WatchesContext";
 
 // Imported pic for ProductItem
 //import prx from "../banner/banner-image/prx-collection.jpg";
 
 export default function ProductGrid({ filterFn }) {
+  // Should there be anoter state for error?
   const [watchesArray, setWatchesArray] = useState([]);
+  const { setGlobalWatchesData } = useWatches();
+
   const [loading, setLoading] = useState([true]);
 
   // pagination state
@@ -38,14 +43,30 @@ export default function ProductGrid({ filterFn }) {
 
         // Duplicate array
         const duplicatedData = duplicateWatches(data);
-        console.log("Duplicated DATA:", duplicatedData);
+        //console.log("Duplicated DATA:", duplicatedData);
 
         // Apply filter if provided
         const filtered = filterFn
           ? duplicatedData.filter(filterFn)
           : duplicatedData;
 
-        setWatchesArray(filtered);
+        // FIX THE CATEGORY IN ARRAY SO THAT IT LEADS TO THE CORRECT PAGE
+        const fixedCategory = filtered.map((watch) => ({
+          ...watch,
+          category:
+            watch.category === "mens-watches"
+              ? "men"
+              : watch.category === "womens-watches"
+              ? "women"
+              : watch.category,
+        }));
+
+        console.log("REPLACED CATEGORY DATA: ", fixedCategory);
+
+        //setWatchesArray(filtered);
+        setWatchesArray(fixedCategory);
+        // Update "global state as well" - context
+        setGlobalWatchesData(fixedCategory);
       } catch (err) {
         console.error("Error fetching watches: ", err);
       } finally {
@@ -58,6 +79,10 @@ export default function ProductGrid({ filterFn }) {
 
   const handlePageChange = (page) => {
     setSearchParams({ page: page.toString() });
+  };
+
+  const consoleLogId = (id) => {
+    console.log(id);
   };
 
   // FIX THIS SO THAT LOADING APPEARS IN THE MIDDLE OF THE SCREEN...
@@ -107,11 +132,14 @@ export default function ProductGrid({ filterFn }) {
         <div className="w-full grid-container">
           {/* // Grid childs */}
           {currentItems.map((watch) => (
-            <ProductItem
-              imgSrc={watch.images[0]}
-              itemName={watch.title}
-              itemPrice={watch.price + "$"}
-            />
+            <Link key={watch.id} to={`/products/${watch.category}/${watch.id}`}>
+              <ProductItem
+                imgSrc={watch.images[0]}
+                itemName={watch.title}
+                itemPrice={watch.price + "$"}
+                onClick={() => consoleLogId(watch.id)}
+              />
+            </Link>
           ))}
         </div>
         {/* Add pagination component */}
