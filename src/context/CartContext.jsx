@@ -6,8 +6,14 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
   // Add item to cart
-  // By defauklt quantity is 1, if no argument is provided it stays one
+  // By default quantity is 1, if no argument is provided it stays one
   const addToCart = (productId, quantity = 1) => {
+    console.log(
+      "Product with id:",
+      productId,
+      "added to cart. Amount is: ",
+      quantity
+    );
     setCartItems((prevItems) => {
       const existingItem = prevItems.find(
         (item) => item.productId === productId
@@ -65,3 +71,11 @@ export function CartProvider({ children }) {
 export function useCart() {
   return useContext(CartContext);
 }
+
+// USE IT LIKE THIS:
+// import { useCart } from "../../context/CartContext";
+
+// const { cartItems, addToCart, removeFromCart, updateQuantity, clearCart } = useCart();
+
+// // Example usage:
+// addToCart(3, 1); // Add product with ID 3, quantity
