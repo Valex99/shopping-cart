@@ -19,6 +19,8 @@ export default function MailForm() {
     }
   };
 
+  // Edit this with media query (below 1000px)
+  // Above 1000px, let padding get smaller down to 1000px
   return (
     <form onSubmit={handleSubmit} className="mail-container px-40 py-10">
       <div className="mail-left">

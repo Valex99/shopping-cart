@@ -5,8 +5,15 @@ import { Link } from "react-router-dom";
 
 import { IoSearchSharp } from "react-icons/io5";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { useCart } from "../context/CartContext";
 
 export default function Header() {
+  // Use context to see how many items there are in the cart
+  const { cartItems } = useCart();
+
+  // Use reduce method to calculate all the items in the cart
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <div className="bg-black text-white h-30 flex items-center justify-center px-4 relative">
       <Link to="/">
@@ -24,9 +31,23 @@ export default function Header() {
           <IoSearchSharp size={30} className="cursor-pointer" />
         </Link>
 
-        <Link to="cart">
-          <MdOutlineShoppingBag size={30} className="cursor-pointer" />
-        </Link>
+        <div>
+          <Link to="cart">
+            <MdOutlineShoppingBag size={30} className="cursor-pointer" />
+          </Link>
+
+          {/* Badge */}
+          {totalItems > 0 && (
+            <div
+              className="absolute -top-2 -right-2 
+            text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full
+              bg-[#c87c2e]"
+            >
+              {/* maybe use black text and white background */}
+              {totalItems}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
