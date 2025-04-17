@@ -1,6 +1,7 @@
-// cart-item/CartItem.jsx
+import { useCart } from "../../context/CartContext";
 
-export default function CartItem({ img, name, price, quantity }) {
+export default function CartItem({ id, img, name, price, quantity }) {
+  const { removeFromCart, updateQuantity } = useCart();
   return (
     <div className="grid grid-cols-6 items-center py-6 text-gray-800 text-sm border-b">
       {/* Item section */}
@@ -26,7 +27,12 @@ export default function CartItem({ img, name, price, quantity }) {
 
       {/* Remove Button */}
       <div>
-        <button className="underline text-black px-4 py-2 rounded bg-gray-200 hover:bg-[#423c3a] hover:text-white transition font-bold cursor-pointer">
+        <button
+          className="underline text-black px-4 py-2 rounded bg-gray-200 hover:bg-[#423c3a] hover:text-white transition font-bold cursor-pointer
+        "
+          // Very simple solution - just pass id to current product - work off ids
+          onClick={() => removeFromCart(id)}
+        >
           Remove
         </button>
       </div>
