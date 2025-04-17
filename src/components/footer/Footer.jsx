@@ -45,7 +45,7 @@ export default function Footer() {
           </p>
           <div className="footer-contact-icons">
             <span>📞 (000)-WATCH</span>
-            <span>📧 support@watchstore.com</span>
+            <span>📧 support@nouve.com</span>
             <span>💬 Chat with Us</span>
           </div>
         </div>

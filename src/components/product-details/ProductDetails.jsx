@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // Import context
 import { useWatches } from "../../context/WatchesContext";
+import { useCart } from "../../context/CartContext";
 
 export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
@@ -20,6 +21,8 @@ export default function ProductDetails() {
   const productId = Number(id); // Convert it from string to number
   const watchData = globalWatchesData.find((watch) => watch.id === productId);
   console.log("CLICKED WATCH WHOLE DATA: ", watchData);
+
+  const { addToCart } = useCart();
 
   // This makes sure selectedImage is only set once the data is loaded.
   useEffect(() => {
@@ -62,6 +65,7 @@ export default function ProductDetails() {
               src={img}
               onClick={() => setSelectedImage(img)}
               className={`h-20 w-20 object-cover cursor-pointer rounded ${
+                // If current image matches displayed image - make border different
                 selectedImage === img
                   ? "border-4 border-black"
                   : "border border-gray-300"
@@ -117,6 +121,7 @@ export default function ProductDetails() {
           className="add-to-cart-btn"
           onClick={() => {
             setIsAddedToCart(true);
+            addToCart(watchData.id, quantity)
             setQuantity(1);
           }}
         >

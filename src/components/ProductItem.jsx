@@ -8,7 +8,8 @@ export default function ProductItem({
   return (
     // Add a second image later on
     <div
-      className="grid-child relative shadow-md rounded hover:scale-101 cursor-pointer"
+      // Adjust the look of the product card
+      className="grid-child relative shadow-lg rounded-2xl hover:scale-102 cursor-pointer transition-transform duration-300"
       onClick={onClick}
     >
       <div className="relative h-[280px] w-full group">
