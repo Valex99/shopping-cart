@@ -1,0 +1,43 @@
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Button styles */
+.increase,
+.decrease {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #aaa; /* Grey border */
+  background-color: #fff;
+  color: #aaa; /* Grey text */
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.increase:hover,
+.decrease:hover {
+  background-color: #aaa; /* Grey background on hover */
+  color: white;
+}
+
+/* Disabled state */
+.decrease:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Input styling */
+.input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #aaa; /* Grey border */
+  padding: 0.4rem;
+  font-size: 1rem;
+  border-radius: 6px;
+}
