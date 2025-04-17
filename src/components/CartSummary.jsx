@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CartSummary({ totalPrice, onClick }) {
   return (
     <div className="w-full md:w-96 mt-10 md:mt-0 md:ml-auto p-6 pr-0 pt-10 rounded-md bg-white ">
@@ -24,6 +26,13 @@ export default function CartSummary({ totalPrice, onClick }) {
       >
         Checkout
       </button>
+
+      <div className="flex justify-end">
+        <Link to="/products">
+        
+        <p className="underline pt-3 cursor-pointer">Continue Shopping?</p>
+        </Link>
+      </div>
     </div>
   );
 }
