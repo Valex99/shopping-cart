@@ -131,7 +131,7 @@
 }
 
 .add-to-cart-btn {
-  padding: 0.8rem 2rem;
+  padding: 0.5rem 2rem;
   background-color: transparent;
   border: 2px solid #c87c2e;
   color: #c87c2e;
@@ -148,7 +148,7 @@
 
 .checkout-btn {
   opacity: 1;
-  padding: 0.8rem 2rem;
+  padding: 0.5rem 2rem;
   background-color: transparent;
   border: 2px solid #898785;
   color: #898785;

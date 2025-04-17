@@ -61,7 +61,7 @@ export default function ProductGrid({ filterFn }) {
               : watch.category,
         }));
 
-        console.log("REPLACED CATEGORY DATA: ", fixedCategory);
+        //console.log("REPLACED CATEGORY DATA: ", fixedCategory);
 
         //setWatchesArray(filtered);
         setWatchesArray(fixedCategory);
