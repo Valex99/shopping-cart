@@ -2,11 +2,23 @@ import "./search.css";
 import { useWatches } from "../../context/WatchesContext";
 import SearchItem from "../SearchItem";
 import { IoIosArrowBack } from "react-icons/io";
+import { useState } from "react";
 
 import img1 from "./../../components/banner/banner-image/prx-collection.jpg";
 
 export default function SearchModal({ toggleModal }) {
   const { globalWatchesData } = useWatches();
+  const [userInput, setUserInput] = useState("");
+
+  // Handle input change and update searchTerm
+  const handleSearchChange = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  // Filter watches based on search input
+  const filteredWatches = globalWatchesData.filter((watch) =>
+    watch.title.toLowerCase().startsWith(userInput.toLowerCase())
+  );
 
   return (
     <>
@@ -38,6 +50,8 @@ export default function SearchModal({ toggleModal }) {
             <input
               type="text"
               placeholder="Search..."
+              value={userInput} // Bind input value to the state
+              onChange={handleSearchChange}
               className="w-full p-2 border border-gray-300 rounded-md"
             />
             <button
@@ -52,11 +66,19 @@ export default function SearchModal({ toggleModal }) {
           FLEXBOX -> FLEX DIRECTION COLUMN
           */}
           <div className="mt-5 flex flex-col">
-            {/* NOW HERE - FOR EACH PRODUCT THAT STARTS WITH LETTER THAT USER TYPED IN, SHOW THAT PRODUCTS */}
-            {/* CALL COMPONENT - FOR EACH ITEM */}
+            {/* Map through filtered watches and display SearchItems */}
 
-            <SearchItem img={img1} name="PRX TISSOT" price="1000€" />
-            <SearchItem img={img1} name="PRX TISSOT" price="1000€" />
+            {filteredWatches.length > 0 ? (
+              filteredWatches.map((item) => (
+                <SearchItem
+                  img={item.images[0]}
+                  name={item.title}
+                  price={item.price}
+                />
+              ))
+            ) : (
+              <p>No products found </p>
+            )}
           </div>
         </div>
       </div>

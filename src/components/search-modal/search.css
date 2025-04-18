@@ -2,3 +2,7 @@
     background-color: black;
     opacity: 50%;
   }
+
+.search-item:hover {
+  text-decoration: underline;
+}
