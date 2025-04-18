@@ -69,13 +69,16 @@ export default function SearchModal({ toggleModal }) {
             {filteredWatches.length > 0 ? (
               filteredWatches.map((item) => (
                 <SearchItem
+                  id={item.id}
+                  category={item.category}
                   img={item.images[0]}
                   name={item.title}
                   price={item.price}
+                  onClick={toggleModal}
                 />
               ))
             ) : (
-              <p>No products found </p>
+              <p className="pl-2">No products found </p>
             )}
           </div>
         </div>
