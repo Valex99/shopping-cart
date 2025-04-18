@@ -3,7 +3,6 @@
 - Add new arrivals Component!
 
 Carousel:
-- maybe replace the button with the one on the main store
 - fix left and right button animation
 - Add timer so that carousel spins by itself
 
@@ -20,24 +19,13 @@ Grid:
 - Fix resizing
 - Fix gap between products on page resize
 
-Loading:
-- Fix loading screen - should appear in the middle
-
-Side products menu:
-- Make it sticky (on scroll)
-
-// Fix linter error - each child should have unique key prop!
-
-
 CART:
 - Add buttons to increase / decrease amount - should work with keyboard
-
-
 
 TODO:
 - Edit browse products button in about us page
 - Finish about us page
 
-
 FIX VERCEL
-ADD SEARCH
+
+// Click on the product inside search modal should lead you to that product page...

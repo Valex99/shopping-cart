@@ -6,6 +6,8 @@ import MailForm from "./components/mail-form/MailForm";
 import Footer from "./components/footer/Footer";
 import Author from "./components/Author";
 import ScrollToTop from "./components/ScrollToTop";
+import SearchModal from "./components/search-modal/SearchModal";
+import { useState } from "react";
 
 import { Outlet } from "react-router-dom";
 
@@ -19,10 +21,18 @@ import { Outlet } from "react-router-dom";
 // Then you tell React Router to wrap all routes inside it.
 
 export default function Layout() {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  console.log(isModalOpen)
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+
   return (
     <>
       <ScrollToTop />
-      <HeaderWrapper />
+      <HeaderWrapper toggleModal={toggleModal} /> {/* Pass toggleModal to the header */}
       <Nav />
       <main>
         <Outlet />
@@ -30,7 +40,9 @@ export default function Layout() {
       <MailForm />
       <Footer />
       <Author />
-      {/* Once the footer is ready - do the same with it */}
+
+      {/* Render the modal here */}
+      {isModalOpen && <SearchModal toggleModal={toggleModal} />}
     </>
   );
 }
