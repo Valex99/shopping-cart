@@ -16,7 +16,8 @@ export default function CartItem({ id, img, category, name, price, quantity }) {
           <img
             src={img}
             alt={name}
-            className="hover:scale-102 transition-transform duration-500 border border-[#c87c2e] ease-in-out w-20 h-20 object-cover rounded cursor-pointer group-hover:scale-105"
+            className="hover:scale-102 transition-transform duration-500 border border-[#c87c2e] ease-in-out 
+            w-20 h-20 object-cover rounded cursor-pointer group-hover:scale-105"
           />
         </Link>
 

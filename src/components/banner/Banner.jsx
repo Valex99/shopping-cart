@@ -2,6 +2,8 @@
 //import allProductsImg from "./banner-image/banner1.jpg";
 //import prx1 from "./banner-image/prx-collection.jpg";
 
+import "./banner.css"
+
 export default function Banner({ title, description, img }) {
   return (
     <div className="banner-div flex h-[420px]">
@@ -21,8 +23,7 @@ export default function Banner({ title, description, img }) {
         <img
           src={img}
           alt={title}
-          className="transition-transform duration-600 transform hover:scale-103 w-full h-full object-cover 
-          grayscale"
+          className="transition-transform duration-600 transform hover:scale-103 w-full h-full object-cover grayscale"
         />
       </div>
     </div>

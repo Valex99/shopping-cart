@@ -25,7 +25,11 @@ export default function ProductGrid({ filterFn }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get("page")) || 1;
 
-  // Calcualte pagination variables
+  // Make sure it scrolls to the top whenever user switches the page
+  useEffect(() => {
+    window.scrollTo({ top: 600, behavior: "smooth" });
+  }, [currentPage]); // Dependancy array -> whenever curent page changes, run useEffect
+
   // Determine the indices for slicing your watchesArray to display the correct items per page. How many products per page?
   const itemsPerPage = 12;
   const totalItems = watchesArray.length;
