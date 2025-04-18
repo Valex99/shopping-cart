@@ -2,9 +2,6 @@
 - Add different fonts (Releway font)
 - Add new arrivals Component!
 
-Header:
-- Make header sticky to the top of the page on scroll down
-
 Carousel:
 - maybe replace the button with the one on the main store
 - fix left and right button animation
@@ -42,6 +39,5 @@ TODO:
 - Finish about us page
 
 
-MOST IMPORTANT - Create a new header on scroll (sticky)
 FIX VERCEL
 ADD SEARCH

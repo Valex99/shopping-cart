@@ -38,3 +38,8 @@ export default function HeaderWrapper() {
     </>
   );
 }
+
+//FIXED BLINKING
+// Fixed the Layout & Positioning:
+// We never rendered both headers at the same time. The main header (Header) always stays visible at the top.
+// The sticky header (StickyHeader) is initially hidden, and it only becomes visible when the page scrolls down past 120px (the trigger point).
