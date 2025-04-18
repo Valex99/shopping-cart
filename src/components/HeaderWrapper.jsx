@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./Header";
 import StickyHeader from "./StickyHeader";
 
-export default function HeaderWrapper() {
+export default function HeaderWrapper({ toggleModal }) {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -25,14 +25,14 @@ export default function HeaderWrapper() {
     <>
       <div>
         {/* The main header is always visible */}
-        <Header />
+        <Header toggleModal={toggleModal} />
         {/* The sticky header will only be visible once scrolled past 120px */}
         <div
           className={`transition-all duration-300 ease-in-out ${
             isSticky ? "fixed top-0 left-0 w-full z-50" : "hidden"
           }`}
         >
-          <StickyHeader />
+          <StickyHeader toggleModal={toggleModal} />
         </div>
       </div>
     </>

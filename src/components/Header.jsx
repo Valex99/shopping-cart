@@ -7,7 +7,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { useCart } from "../context/CartContext";
 
-export default function Header() {
+export default function Header({ toggleModal }) {
   // Use context to see how many items there are in the cart
   const { cartItems } = useCart();
 
@@ -27,8 +27,12 @@ export default function Header() {
 
       <div className="icons absolute top-+ right-10 flex items-center space-x-4 text-xl text-white">
         {/* // Temporary while the page is in production */}
-        <Link to="error">
-          <IoSearchSharp size={30} className="cursor-pointer" />
+    <Link>
+        <IoSearchSharp
+          size={30}
+          className="cursor-pointer"
+          onClick={toggleModal}
+        />
         </Link>
 
         <div>

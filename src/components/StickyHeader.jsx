@@ -3,7 +3,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { useCart } from "../context/CartContext";
 
-export default function StickyHeader() {
+export default function StickyHeader({ toggleModal }) {
   const { cartItems } = useCart();
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -38,9 +38,11 @@ export default function StickyHeader() {
 
       <div className="relative icons w-[100px] flex items-center space-x-4 text-xl text-white justify-end">
         {/* // Temporary while the page is in production */}
-        <Link to="error">
-          <IoSearchSharp size={25} className="cursor-pointer" />
-        </Link>
+        <IoSearchSharp
+          size={25}
+          className="cursor-pointer"
+          onClick={toggleModal}
+        />
 
         <div>
           <Link to="cart">
