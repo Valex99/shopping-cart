@@ -22,15 +22,15 @@ export default function SearchModal({ toggleModal }) {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 z-40 flex"
+        className="fixed inset-0 z-4000 flex"
         onClick={toggleModal} // Close modal if clicking anywhere on the backdrop
       >
         {/* Left half backdrop */}
-        <div className="backdrop w-1/2 h-full"></div>
+        <div className="backdrop w-3/5 h-full"></div>
 
         {/* Right half modal */}
         <div
-          className="w-1/2 bg-white p-6 shadow-lg z-50"
+          className="w-2/5 bg-white p-6 shadow-lg z-5000"
           onClick={(e) => e.stopPropagation()} // Prevent click on modal content from closing the modal
         >
           <div
