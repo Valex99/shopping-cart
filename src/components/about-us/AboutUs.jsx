@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 export default function AboutUs() {
   return (
-    <div className="flex flex-col">
+    <div>
       <div
         style={{ backgroundColor: "#F7EDE1" }}
-        className="w-full pt-20 pb-15 px-4"
+        className="w-full pb-20 pt-10 px-4"
       >
         <div className="mx-auto max-w-xl text-center">
           <h1 className="text-2xl font-semibold text-gray-800 mb-6 uppercase">
@@ -30,10 +30,10 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <div>
+      <div className="main-wrapper">
         {/* FIRST SECTION */}
-        <div className="px-6 md:px-20 py-12 max-w-screen-xl mx-auto">
-          <div className="flex flex-col md:flex-row items-stretch gap-10 mb-20">
+        <div className="md:px-20 py-12 max-w-screen-xl mx-auto mt-15">
+        <div className="flex flex-col md:flex-row items-stretch gap-10 mb-20 px-20">
             <img
               src={image1}
               alt="Timeless Watches"
@@ -74,8 +74,8 @@ export default function AboutUs() {
           </div>
 
           {/* SECOND SECTION */}
-          <div className="px-6 md:px-20 py-12 max-w-screen-xl mx-auto">
-            <div className="flex flex-col md:flex-row items-stretch gap-10 mb-20">
+           <div className="px-6 md:px-20 py-12 max-w-screen-xl mx-auto">
+        <div className="flex flex-col md:flex-row items-stretch gap-10 mb-20">
               <div className="md:w-1/2 flex flex-col justify-between h-full text-center md:text-left">
                 <div className="mb-6">
                   <h2 className="text-3xl font-semibold text-gray-800 mb-4">
