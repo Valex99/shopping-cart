@@ -8,10 +8,13 @@ export default function StickyHeader() {
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="px-10 h-[70px] w-full flex bg-black items-center justify-between">
+    <div
+      className="fixed top-0 left-0 w-full z-50 bg-black
+    px-10 h-[70px] w-full flex bg-black items-center justify-between"
+    >
       <Link to="/">
         <h1
-          className=" font-semibold text-2xl uppercase tracking-wide text-white m-0 cursor-pointer 
+          className="w-[100px] font-semibold text-2xl uppercase tracking-wide text-white m-0 cursor-pointer 
       hover:scale-105 transition-all duration-700 ease-in-out"
         >
           NOUVÉ
@@ -33,7 +36,7 @@ export default function StickyHeader() {
         </Link>
       </div>
 
-      <div className="relative icons flex items-center space-x-4 text-xl text-white">
+      <div className="relative icons w-[100px] flex items-center space-x-4 text-xl text-white justify-end">
         {/* // Temporary while the page is in production */}
         <Link to="error">
           <IoSearchSharp size={25} className="cursor-pointer" />

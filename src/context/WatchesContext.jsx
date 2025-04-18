@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-//import { useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { fetchWatches } from "../api";
 // LOCATION OF THE FILE DOESNT MATTER (Parent/child) as long as the paths are correct
 
 // 1. Create the context
@@ -9,23 +9,19 @@ const WatchesContext = createContext();
 export function WatchesProvider({ children }) {
   const [globalWatchesData, setGlobalWatchesData] = useState([]);
 
-  // MAKE IT FIX THE SITUATION
-  // // ✅ Load data on first render (important for page refreshes)
-  // useEffect(() => {
-  //   async function fetchWatches() {
-  //     try {
-  //       const res = await fetch("/path-to-your-data.json"); // 🔁 Update this path
-  //       const data = await res.json();
-  //       setGlobalWatchesData(data);
-  //     } catch (err) {
-  //       console.error("Failed to load watches data", err);
-  //     }
-  //   }
+  // 🔁 Fetch watches on first load
+  useEffect(() => {
+    async function loadWatches() {
+      try {
+        const data = await fetchWatches();
+        setGlobalWatchesData(data);
+      } catch (err) {
+        console.error("Failed to load watches data", err);
+      }
+    }
 
-  //   if (globalWatchesData.length === 0) {
-  //     fetchWatches();
-  //   }
-  // }, []);
+    loadWatches();
+  }, []);
 
   return (
     <WatchesContext.Provider

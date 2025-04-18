@@ -1,9 +1,28 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
+// Local storage is very simply added -> just make sure you:
+// 1) Initialize it on load
+// 2) And save it on any change
+
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  // Meaning: either set existing cart as a state or use empty aray
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      // 1) ✅ Load cart from localStorage initially
+      const storedCart = localStorage.getItem("cart");
+      return storedCart ? JSON.parse(storedCart) : [];
+    } catch (err) {
+      console.error("Error parsing cart from local storage: ", err);
+      return [];
+    }
+  });
+
+  // 2) ✅ Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   // Add item to cart
   // By default quantity is 1, if no argument is provided it stays one

@@ -16,9 +16,6 @@ FeaturedCollection:
 - Fix side padding (apply max width)
 - Fix link to see collection - works if you click right when text ends...
 
-Blog:
-- Make images reactive
-
 Footer:
 - Fix footer - section should be tighter together
 
@@ -29,16 +26,22 @@ Grid:
 Loading:
 - Fix loading screen - should appear in the middle
 
-Pagiation:
-- Whenever page is switches, it should scroll to the top of the page
-
-NEXT STEPS:
-1. Create multiple products pages (12 items per page)
-2. Ceate buttons to switch the page
-3. Make react router work with switch pages.
+Side products menu:
+- Make it sticky (on scroll)
 
 // Fix linter error - each child should have unique key prop!
 
-// Add Local storage!
 
-// BIG ERROR - IF YOU ARE ON SINGLE PRODUCT PAGE AND YOU REFRESH A PAGE -> It crashes
+CART:
+- Add buttons to increase / decrease amount - should work with keyboard
+
+
+
+TODO:
+- Edit browse products button in about us page
+- Finish about us page
+
+
+MOST IMPORTANT - Create a new header on scroll (sticky)
+FIX VERCEL
+ADD SEARCH
