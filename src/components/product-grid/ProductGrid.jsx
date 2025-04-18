@@ -27,7 +27,7 @@ export default function ProductGrid({ filterFn }) {
 
   // Make sure it scrolls to the top whenever user switches the page
   useEffect(() => {
-    window.scrollTo({ top: 600, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]); // Dependancy array -> whenever curent page changes, run useEffect
 
   // Determine the indices for slicing your watchesArray to display the correct items per page. How many products per page?

@@ -4,8 +4,6 @@ import SearchItem from "../SearchItem";
 import { IoIosArrowBack } from "react-icons/io";
 import { useState } from "react";
 
-import img1 from "./../../components/banner/banner-image/prx-collection.jpg";
-
 export default function SearchModal({ toggleModal }) {
   const { globalWatchesData } = useWatches();
   const [userInput, setUserInput] = useState("");
@@ -32,7 +30,7 @@ export default function SearchModal({ toggleModal }) {
 
         {/* Right half modal */}
         <div
-          className="w-1/2 h-full bg-white p-6 shadow-lg z-50"
+          className="w-1/2 bg-white p-6 shadow-lg z-50"
           onClick={(e) => e.stopPropagation()} // Prevent click on modal content from closing the modal
         >
           <div
@@ -46,7 +44,7 @@ export default function SearchModal({ toggleModal }) {
           <h1 className="text-2xl mt-3 mb-3">Search Products</h1>
 
           {/* SEARCH BAR & BUTTON DIV */}
-          <div className="flex items-center">
+          <div className="flex items-center ">
             <input
               type="text"
               placeholder="Search..."
@@ -65,7 +63,7 @@ export default function SearchModal({ toggleModal }) {
           {/* SEARCH PRODUCTS 
           FLEXBOX -> FLEX DIRECTION COLUMN
           */}
-          <div className="mt-5 flex flex-col">
+          <div className="mt-5 flex flex-col max-h-[80%] overflow-y-auto">
             {/* Map through filtered watches and display SearchItems */}
 
             {filteredWatches.length > 0 ? (
