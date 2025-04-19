@@ -1,10 +1,12 @@
 import { useCart } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import "./cart.css";
 
 export default function CartItem({ id, img, category, name, price, quantity }) {
   const { removeFromCart, updateQuantity } = useCart();
+  const [userInput, setUserInput] = useState(quantity);
 
   const path = category === "mens-watches" ? "men" : "women";
   return (
@@ -36,7 +38,7 @@ export default function CartItem({ id, img, category, name, price, quantity }) {
         >
           -
         </button>
-        <input type="text" className="amount input" value={quantity} min="1" />
+        <input type="text" className="amount input" value={quantity} min="1" disabled/>
         <button
           className="increase"
           onClick={() => updateQuantity(id, quantity + 1)}

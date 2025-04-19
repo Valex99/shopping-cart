@@ -104,10 +104,25 @@ export default function ProductDetails() {
             -
           </button>
           <input
-            type="number"
+            type="text"
             className="amount input"
+            onChange={(e) => {
+              const value = e.target.value;
+              // Allow empty input while typing
+              if (value === "") {
+                setQuantity("");
+              } else {
+                setQuantity(Number(value));
+              }
+            }}
+            onBlur={() => {
+              // If input is empty or invalid when losing focus, reset to 1
+              if (!quantity || quantity <= 0) {
+                setQuantity(1);
+              }
+            }}
+            min={1}
             value={quantity}
-            min="1"
           />
           <button
             className="increase"
@@ -121,7 +136,7 @@ export default function ProductDetails() {
           className="add-to-cart-btn"
           onClick={() => {
             setIsAddedToCart(true);
-            addToCart(watchData.id, quantity)
+            addToCart(watchData.id, quantity);
             setQuantity(1);
           }}
         >

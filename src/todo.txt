@@ -2,10 +2,6 @@
 - Add different fonts (Releway font)
 - Add new arrivals Component!
 
-Carousel:
-- fix left and right button animation
-- Add timer so that carousel spins by itself
-
 FeaturedCollection:
 - Fix lateral padding (resize of images when screen goes towards 700px)
 - Add media query at around 700 / 800px page width
