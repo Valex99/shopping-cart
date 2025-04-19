@@ -13,9 +13,6 @@ export default function Cart() {
 
   if (cartItems.length === 0) return <EmptyCart />;
 
-  console.log("CART ITEMS:", cartItems);
-  console.log("WATCHES: ", globalWatchesData);
-
   // Wait for watches data before rendering cart
   if (!isWatchesDataLoaded) {
     return <div className="text-center mt-10">Loading products...</div>;
@@ -63,11 +60,6 @@ export default function Cart() {
               </div>
             );
           }
-
-          console.log("PRODUCT OBJECT: ", product);
-          console.log("Looking for ID:", productId);
-          console.log("Watches:", globalWatchesData); // OK
-          //if (!product) return null; // Skip if not found
 
           return (
             <CartItem

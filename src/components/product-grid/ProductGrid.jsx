@@ -47,7 +47,6 @@ export default function ProductGrid({ filterFn }) {
 
         // Duplicate array
         const duplicatedData = duplicateWatches(data);
-        //console.log("Duplicated DATA:", duplicatedData);
 
         // Apply filter if provided
         const filtered = filterFn
@@ -65,8 +64,6 @@ export default function ProductGrid({ filterFn }) {
               : watch.category,
         }));
 
-        //console.log("REPLACED CATEGORY DATA: ", fixedCategory);
-
         //setWatchesArray(filtered);
         setWatchesArray(fixedCategory);
         // Update "global state as well" - context
@@ -83,10 +80,6 @@ export default function ProductGrid({ filterFn }) {
 
   const handlePageChange = (page) => {
     setSearchParams({ page: page.toString() });
-  };
-
-  const consoleLogId = (id) => {
-    console.log(id);
   };
 
   // FIX THIS SO THAT LOADING APPEARS IN THE MIDDLE OF THE SCREEN...
@@ -142,7 +135,6 @@ export default function ProductGrid({ filterFn }) {
                 secondImageSrc={watch.images[1]}
                 itemName={watch.title}
                 itemPrice={watch.price + "$"}
-                onClick={() => consoleLogId(watch.id)}
               />
             </Link>
           ))}

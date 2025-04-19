@@ -27,12 +27,6 @@ export function CartProvider({ children }) {
   // Add item to cart
   // By default quantity is 1, if no argument is provided it stays one
   const addToCart = (productId, quantity = 1) => {
-    console.log(
-      "Product with id:",
-      productId,
-      "added to cart. Amount is: ",
-      quantity
-    );
     setCartItems((prevItems) => {
       const existingItem = prevItems.find(
         (item) => item.productId === productId

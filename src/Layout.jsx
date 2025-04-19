@@ -22,7 +22,6 @@ import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
-  console.log(isModalOpen)
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);

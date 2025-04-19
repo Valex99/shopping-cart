@@ -15,12 +15,10 @@ export default function ProductDetails() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const { id } = useParams();
-  console.log("ID:", id);
 
   const { globalWatchesData } = useWatches();
   const productId = Number(id); // Convert it from string to number
   const watchData = globalWatchesData.find((watch) => watch.id === productId);
-  console.log("CLICKED WATCH WHOLE DATA: ", watchData);
 
   const { addToCart } = useCart();
 

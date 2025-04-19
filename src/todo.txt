@@ -15,13 +15,7 @@ Grid:
 - Fix resizing
 - Fix gap between products on page resize
 
-CART:
-- Add buttons to increase / decrease amount - should work with keyboard
-
-TODO:
-- Edit browse products button in about us page
-- Finish about us page
-
-FIX VERCEL
-
-// Click on the product inside search modal should lead you to that product page...
+Bug:
+- Items in the cart are not upadting if you refresh the page and the product is a copy of the original fetched product
+- Once the data is fetched withing the context (triplicate it there) and you dont need another file to do so
+- TLDR; Data should be fetched on page load and only inside WatchesContext -> it should be exported from there! - Adjust the logic in ProductGrid.jsx

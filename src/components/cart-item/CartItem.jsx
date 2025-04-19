@@ -7,6 +7,19 @@ export default function CartItem({ id, img, category, name, price, quantity }) {
   const { removeFromCart, updateQuantity } = useCart();
 
   const path = category === "mens-watches" ? "men" : "women";
+
+  function formatPrice(price) {
+    if (typeof price !== "number") return "";
+
+    const rounded = price.toFixed(2); // ensures 2 decimal places
+    const [integer, decimal] = rounded.split(".");
+
+    // Add space every 3 digits from the right in the integer part
+    const formattedInt = integer.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+    return `${formattedInt}.${decimal}`;
+  }
+
   return (
     <div className="grid grid-cols-6 items-center py-6 text-gray-800 text-sm border-b">
       {/* Item section */}
@@ -53,7 +66,7 @@ export default function CartItem({ id, img, category, name, price, quantity }) {
 
       {/* Total */}
       <div className="text-left font-semibold">
-        € {(price * quantity).toFixed(2)}
+        {formatPrice(quantity * price)} €
       </div>
 
       {/* Remove Button */}
